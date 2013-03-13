@@ -1,0 +1,10 @@
+*.aux
+*.bbl
+*.blg
+*.log
+*~
+.Rhistory
+.RData
+*.pdf
+*.RData
+*.Rout
