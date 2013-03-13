@@ -1,0 +1,50 @@
+
+hapAAauto :  (1-r)/2*(((1)/(4*(1+6*r))) - (((6*r^2-7*r-3*r*sqrt(4*r^2-12*r+5))/(4*(1+6*r)*sqrt(4*r^2-12*r+5))))*(((1 - 2*r + sqrt(4*r^2-12*r+5))/(4)))^k + (((6*r^2-7*r+3*r*sqrt(4*r^2-12*r+5))/(4*(1+6*r)*sqrt(4*r^2-12*r+5))))*(((1 - 2*r - sqrt(4*r^2-12*r+5))/(4)))^k)$
+
+hapAAfemaleX : ( (2-r) * (((1)/(3*(1+4*r))) + ((1)/(6*(1+r)))*(-((1)/(2)))^k - (((4*r^3 - (4*r^2+3*r)*sqrt(r^2-10*r+5)+3*r^2-5*r)/(4*(4*r^2+5*r+1)*sqrt(r^2-10*r+5))))*(((1 - r + sqrt(r^2-10*r+5))/(4)))^k + (((4*r^3 + (4*r^2+3*r)*sqrt(r^2-10*r+5)+3*r^2-5*r)/(4*(4*r^2+5*r+1)*sqrt(r^2-10*r+5))))*(((1 - r - sqrt(r^2-10*r+5))/(4)))^k) +
+ (1-r) * (((1)/(3*(1+4*r))) - ((1)/(3*(1+r)))*(-((1)/(2)))^k + (((9*r^2 +5*r + r*sqrt(r^2-10*r+5))/(2*(4*r^2+5*r+1)*sqrt(r^2-10*r+5))))*(((1 - r + sqrt(r^2-10*r+5))/(4)))^k - (((9*r^2 +5*r - r*sqrt(r^2-10*r+5))/(2*(4*r^2+5*r+1)*sqrt(r^2-10*r+5))))*(((1 - r - sqrt(r^2-10*r+5))/(4)))^k) ) / 8$
+
+hapAAmaleX : ( (2-r) * (((1)/(3*(1+4*r))) - ((1)/(3*(1+r)))*(-((1)/(2)))^k + (((r^3 - (8*r^3+r^2-3*r)*sqrt(r^2-10*r+5)-10*r^2+5*r)/(2*(4*r^4-35*r^3-29*r^2+15*r+5)))) *(((1 - r + sqrt(r^2-10*r+5))/(4)))^k + (((r^3 + (8*r^3+r^2-3*r)*sqrt(r^2-10*r+5)-10*r^2+5*r)/(2*(4*r^4-35*r^3-29*r^2+15*r+5)))) *(((1 - r - sqrt(r^2-10*r+5))/(4)))^k) +
+ (1-r) * (((1)/(3*(1+4*r))) + ((2)/(3*(1+r)))*(-((1)/(2)))^k + (((2*r^4 + (2*r^3-r^2+r)*sqrt(r^2-10*r+5)-19*r^3+5*r)/(4*r^4-35*r^3-29*r^2+15*r+5))) *(((1 - r + sqrt(r^2-10*r+5))/(4)))^k + (((2*r^4 - (2*r^3-r^2+r)*sqrt(r^2-10*r+5)-19*r^3+5*r)/(4*r^4-35*r^3-29*r^2+15*r+5))) *(((1 - r - sqrt(r^2-10*r+5))/(4)))^k) ) / 8$
+
+hapAAauto : radcan(ev(hapAAauto, k=k+1))$
+hapAAfemaleX : radcan(ev(hapAAfemaleX, k=k+1))$
+hapAAmaleX : radcan(ev(hapAAmaleX, k=k+1))$
+
+z : sqrt((1-r)*(9-r))$
+ws : ((1-r+z)/4)^(s-1)$
+ys : ((1-r-z)/4)^(s-1)$
+
+
+Rauto : radcan(1-8*((1-r)^(s-1)*(hapAAauto- 1/64) + 1/64))$
+
+RfemaleX : radcan(1-8*(1/64 + 1/128 * ((128*hapAAmaleX + 64*hapAAfemaleX*(1-r) - (3-r))*(ws-ys)/z -
+                                        (1-64*hapAAfemaleX)*(ws+ys))))$
+
+RmaleX :   radcan(1-8*(1/64 + 1/128 * ((64*hapAAmaleX - 256*hapAAfemaleX + 3) * (ys-ws)*(1-r)/z -
+                                        (1-64*hapAAmaleX)*(ws+ys))))$
+
+gauto : radcan(diff(Rauto, r))$
+meauto : radcan(ev(gauto, r=0))$
+
+meautoalt : 7*(7+s)/8+((7*sqrt(5)-15)/5)*((1-sqrt(5))/4)^(k+1)
+                               -((7*sqrt(5)+15)/5)*((1+sqrt(5))/4)^(k+1)$
+
+
+
+gfemaleX : radcan(diff(RfemaleX, r))$
+mefemaleX : radcan(ev(gfemaleX, r=0))$
+
+
+gmaleX : radcan(diff(RmaleX, r))$
+memaleX : radcan(ev(gmaleX, r=0))$
+
+memaleXalt : (21*s+154)/36
+                   -((30+14*sqrt(5))/15)*((1+sqrt(5))/4)^(k+1)
+                   -((30-14*sqrt(5))/15)*((1-sqrt(5))/4)^(k+1)
+             +(-1/2)^s*7/18    -2*(-1/2)^(k+1+s)/3
+	           -(-1/2)^(s)*(4*sqrt(5)/15)*( ((1+sqrt(5))/4)^(k+1) - ((1-sqrt(5))/4)^(k+1) )$
+
+
+
+radcan((mefemaleX * 2/3 + memaleX * 1/3) / meauto);  /* X chr 2/3 that of autosome */

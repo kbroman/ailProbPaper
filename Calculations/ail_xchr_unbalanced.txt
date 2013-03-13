@@ -1,0 +1,94 @@
+fAfem : radcan((2/3) + (1/3)*(-1/2)^k)$
+fAmal : radcan((2/3) + (1/3)*(-1/2)^(k-1))$
+
+f1 : 1/2$
+m1 : 1$
+
+f2 : (1-r)/4 + 1/2$
+m2 : (1-r)/2$
+gf : diff((ev(fAfem,k=2) - f2)*2, r)$
+mef2 : radcan(ev(gf, r=0));
+gm : diff((ev(fAmal,k=2) - m2)*2, r)$
+mem2 : radcan(ev(gm, r=0));
+me2 : radcan((2/3)*mef2+(1/3)*mem2);
+
+m3 : radcan((1-r)*f2 + r*ev(fAfem, k=1)*ev(fAmal, k=1))$
+f3 : radcan(m2/2 + (1-r)/2*f2 + r/2*ev(fAfem, k=1)*ev(fAmal, k=1))$
+gf : diff((ev(fAfem,k=3) - f3)*2, r)$
+mef3 : radcan(ev(gf, r=0));
+gm : diff((ev(fAmal,k=3) - m3)*2, r)$
+mem3 : radcan(ev(gm, r=0));
+me3 : radcan((2/3)*mef3+(1/3)*mem3);
+
+m4 : radcan((1-r)*f3 + r*ev(fAfem, k=2)*ev(fAmal, k=2))$
+f4 : radcan(m3/2 + (1-r)/2*f3 + r/2*ev(fAfem, k=2)*ev(fAmal, k=2))$
+gf : diff((ev(fAfem,k=4) - f4)*2, r)$
+mef4 : radcan(ev(gf, r=0));
+gm : diff((ev(fAmal,k=4) - m4)*2, r)$
+mem4 : radcan(ev(gm, r=0));
+me4 : radcan((2/3)*mef4+(1/3)*mem4);
+
+m5 : radcan((1-r)*f4 + r*ev(fAfem, k=3)*ev(fAmal, k=3))$
+f5 : radcan(m4/2 + (1-r)/2*f4 + r/2*ev(fAfem, k=3)*ev(fAmal, k=3))$
+gf : diff((ev(fAfem,k=5) - f5)*2, r)$
+mef5 : radcan(ev(gf, r=0));
+gm : diff((ev(fAmal,k=5) - m5)*2, r)$
+mem5 : radcan(ev(gm, r=0));
+me5 : radcan((2/3)*mef5+(1/3)*mem5);
+
+m6 : radcan((1-r)*f5 + r*ev(fAfem, k=4)*ev(fAmal, k=4))$
+f6 : radcan(m5/2 + (1-r)/2*f5 + r/2*ev(fAfem, k=4)*ev(fAmal, k=4))$
+gf : diff((ev(fAfem,k=6) - f6)*2, r)$
+mef6 : radcan(ev(gf, r=0));
+gm : diff((ev(fAmal,k=6) - m6)*2, r)$
+mem6 : radcan(ev(gm, r=0));
+me6 : radcan((2/3)*mef6+(1/3)*mem6);
+
+m7 : radcan((1-r)*f6 + r*ev(fAfem, k=5)*ev(fAmal, k=5))$
+f7 : radcan(m6/2 + (1-r)/2*f6 + r/2*ev(fAfem, k=5)*ev(fAmal, k=5))$
+gf : diff((ev(fAfem,k=7) - f7)*2, r)$
+mef7 : radcan(ev(gf, r=0));
+gm : diff((ev(fAmal,k=7) - m7)*2, r)$
+mem7 : radcan(ev(gm, r=0));
+me7 : radcan((2/3)*mef7+(1/3)*mem7);
+
+m8 : radcan((1-r)*f7 + r*ev(fAfem, k=6)*ev(fAmal, k=6))$
+f8 : radcan(m7/2 + (1-r)/2*f7 + r/2*ev(fAfem, k=6)*ev(fAmal, k=6))$
+gf : diff((ev(fAfem,k=8) - f8)*2, r)$
+mef8 : radcan(ev(gf, r=0))*1.0;
+gm : diff((ev(fAmal,k=8) - m8)*2, r)$
+mem8 : radcan(ev(gm, r=0))*1.0;
+me8 : radcan((2/3)*mef8+(1/3)*mem8)*1.0;
+
+m9 : radcan((1-r)*f8 + r*ev(fAfem, k=7)*ev(fAmal, k=7))$
+f9 : radcan(m8/2 + (1-r)/2*f8 + r/2*ev(fAfem, k=7)*ev(fAmal, k=7))$
+gf : diff((ev(fAfem,k=9) - f9)*2, r)$
+mef9 : radcan(ev(gf, r=0))*1.0;
+gm : diff((ev(fAmal,k=9) - m9)*2, r)$
+mem9 : radcan(ev(gm, r=0))*1.0;
+me9 : radcan((2/3)*mef9+(1/3)*mem9)*1.0;
+
+m10 : radcan((1-r)*f9 + r*ev(fAfem, k=8)*ev(fAmal, k=8))$
+f10 : radcan(m9/2 + (1-r)/2*f9 + r/2*ev(fAfem, k=8)*ev(fAmal, k=8))$
+gf : diff((ev(fAfem,k=10) - f10)*2, r)$
+mef10 : radcan(ev(gf, r=0))*1.0;
+gm : diff((ev(fAmal,k=10) - m10)*2, r)$
+mem10 : radcan(ev(gm, r=0))*1.0;
+me10 : radcan((2/3)*mef10+(1/3)*mem10)*1.0;
+
+m11 : radcan((1-r)*f10 + r*ev(fAfem, k=9)*ev(fAmal, k=9))$
+f11 : radcan(m10/2 + (1-r)/2*f10 + r/2*ev(fAfem, k=9)*ev(fAmal, k=9))$
+gf : diff((ev(fAfem,k=11) - f11)*2, r)$
+mef11 : radcan(ev(gf, r=0))*1.0;
+gm : diff((ev(fAmal,k=11) - m11)*2, r)$
+mem11 : radcan(ev(gm, r=0))*1.0;
+me11 : radcan((2/3)*mef11+(1/3)*mem11)*1.0;
+
+m12 : radcan((1-r)*f11 + r*ev(fAfem, k=10)*ev(fAmal, k=10))$
+f12 : radcan(m11/2 + (1-r)/2*f11 + r/2*ev(fAfem, k=10)*ev(fAmal, k=10))$
+gf : diff((ev(fAfem,k=12) - f12)*2, r)$
+mef12 : radcan(ev(gf, r=0))*1.0;
+gm : diff((ev(fAmal,k=12) - m12)*2, r)$
+mem12 : radcan(ev(gm, r=0))*1.0;
+me12 : radcan((2/3)*mef12+(1/3)*mem12)*1.0;
+

@@ -1,0 +1,16 @@
+/* autosome */
+ailAAhap : 1/4*( 1 + (1-2*r)*(1-r)^(k-2))$
+ailR : radcan(1 - 2*ailAAhap)$
+g : radcan(diff(ailR, r))$
+me : radcan(ev(g, r=0));
+
+/* X chr (balanced case) */
+z : sqrt(r-9)*sqrt(r-1)$
+wk : ((1-r-z)/4)^(k-2)$
+yk : ((1-r+z)/4)^(k-2)$
+malkalt : 1/4 + (yk+wk)*(1-2*r)/8 + (3-5*r+2*r^2)*(yk-wk)/(8*z)$
+femkalt : 1/4 + (yk+wk)*(1-r)/8 + (3-6*r+r^2)*(yk-wk)/(z*8)$
+
+ailRX : 2/3*(1-2*femkalt) + 1/3*(1-2*malkalt)$
+g : radcan(diff(ailRX, r))$
+meX : radcan(ev(g, r=0));

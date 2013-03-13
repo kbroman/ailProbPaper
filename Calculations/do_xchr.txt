@@ -1,0 +1,28 @@
+A : matrix([0, 1/2, 0],
+    	   [1-r, (1-r)/2, 0],
+           [r/64, r/128, 1])$
+
+pi0 : matrix([m0, f0, 1])$
+
+b : transpose(matrix([1, 0, 0], [0, 1, 0]))$
+
+ev : eigenvectors(A)$
+D : matrix([ev[1][1][1], 0, 0],
+           [0, ev[1][1][2], 0],
+           [0, 0, 1])$
+Dk : matrix([ev[1][1][1]^k, 0, 0],
+           [0, ev[1][1][2]^k, 0],
+           [0, 0, 1])$
+v : transpose(matrix(ev[2][1][1], ev[2][2][1], ev[2][3][1]))$
+vinv : invert(v)$
+radcan(A - v . D . vinv);
+
+z : sqrt((1-r)*(9-r));
+w : ((1-r + z)/4)^k;
+y : ((1-r - z)/4)^k;
+
+
+/* use grind() */ 
+maleX : 1/64 + ((64*m0-256*f0+3)*(y-w)*(1-r)/z -  (1-64*m0)*(w+y)) / 128$
+
+femaleX : 1/64 + ( (128*m0 + 64*f0*(1-r) - (3-r))*(w-y)/z - (1-64*f0)*(w+y)) / 128$
