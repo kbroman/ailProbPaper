@@ -6,3 +6,5 @@ The `Calculations/` directory contains a bunch of [maxima](http://maxima.sourcef
 main calculations in the paper plus R code to check the results.
 There is some additional R code in there, for simulations to further
 check the results, though this work is not mentioned in the paper.
+
+[![CC BY](http://i.creativecommons.org/l/by/3.0/88x31.png)](http://creativecommons.org/licenses/by/3.0/)
