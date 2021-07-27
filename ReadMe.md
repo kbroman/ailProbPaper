@@ -1,6 +1,5 @@
-
 This repository contains the source for the paper
-[Broman KW (2012) Haplotype probabilities in advanced intercross lines. G3 2:199-202](http://www.ncbi.nlm.nih.gov/pubmed/22384398)
+[Broman KW (2012) Haplotype probabilities in advanced intercross lines. G3 2:199-202](https://doi.org/10.1534/g3.111.001818)
 
 The `Calculations/` directory contains a bunch of [maxima](http://maxima.sourceforge.net) code for the
 main calculations in the paper plus R code to check the results.
